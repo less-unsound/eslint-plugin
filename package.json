@@ -1,0 +1,62 @@
+{
+  "name": "@less-unsound/eslint-plugin",
+  "version": "0.0.1",
+  "description": "ESLint 9 flat-config rules for a less unsound TypeScript subset.",
+  "license": "MIT",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "typescript",
+    "flat-config"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "pnpm run build:esm && pnpm run build:cjs && pnpm run build:cjs-package",
+    "build:cjs": "pnpm exec tsc -p tsconfig.build.cjs.json",
+    "build:cjs-package": "node -e \"require('node:fs').mkdirSync('dist/cjs', { recursive: true }); require('node:fs').writeFileSync('dist/cjs/package.json', '{\\n  \\\"type\\\": \\\"commonjs\\\"\\n}\\n')\"",
+    "build:esm": "pnpm exec tsc -p tsconfig.build.esm.json",
+    "check": "pnpm run lint && pnpm run test && pnpm run typecheck && pnpm run build",
+    "lint": "pnpm exec eslint src",
+    "prepack": "pnpm run build",
+    "test": "pnpm exec vitest run",
+    "typecheck": "pnpm exec tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "@typescript-eslint/parser": "^8.43.0",
+    "eslint": "^9.33.0",
+    "typescript": ">=5.8.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/utils": "^8.43.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.43.0",
+    "@typescript-eslint/parser": "^8.43.0",
+    "@typescript-eslint/rule-tester": "^8.43.0",
+    "eslint": "^9.33.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.2.4"
+  }
+}

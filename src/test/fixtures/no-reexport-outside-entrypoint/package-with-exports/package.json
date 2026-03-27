@@ -1,0 +1,8 @@
+{
+  "name": "package-with-exports",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./foo": "./src/foo.ts"
+  }
+}

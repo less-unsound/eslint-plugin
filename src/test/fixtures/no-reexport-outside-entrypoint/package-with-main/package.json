@@ -1,0 +1,5 @@
+{
+  "name": "package-with-main",
+  "type": "module",
+  "main": "./src/index.ts"
+}
