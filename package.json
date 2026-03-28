@@ -3,6 +3,14 @@
   "version": "0.0.1",
   "description": "ESLint 9 flat-config rules for a less unsound TypeScript subset.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/less-unsound/eslint-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/less-unsound/eslint-plugin/issues"
+  },
+  "homepage": "https://github.com/less-unsound/eslint-plugin",
   "keywords": [
     "eslint",
     "eslint-plugin",
